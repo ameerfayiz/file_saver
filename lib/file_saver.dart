@@ -278,7 +278,7 @@ class FileSaver {
       String name, Uint8List bytes, String ext, MimeType mimeType) async {
     String _mimeType = _getType(mimeType);
     Map<dynamic, dynamic> data = {
-      'name': mimeType == MimeType.OTHER ? name + "." + ext : name,
+      'name': (Platform.isIOS)?name:(mimeType == MimeType.OTHER ? name + "." + ext : name),
       'ext': ext,
       'bytes': bytes,
       'type': _mimeType
